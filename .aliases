@@ -1,8 +1,8 @@
-alias art=“php artisan”
-alias hosts="sudo subl /etc/hosts"
+alias art='php artisan'
+alias hosts='sudo subl /etc/hosts'
 
-alias ..="cd .."
-alias ...="cd ../.."
+alias ..='cd ..'
+alias ...='cd ../..'
 
 alias h='cd ~'
 alias c='clear'
@@ -12,28 +12,26 @@ alias pubkey='cat ~/.ssh/id_rsa.pub && cat ~/.ssh/id_rsa.pub | pbcopy'
 alias gaa='git add --all'
 
 # Laravel aliases
-alias art="php artisan"
-alias g:mig="php artisan generate:migration"
-alias g:model="php artisan generate:model"
-alias db:seed="php artisan db:seed"
-alias db:migrate="php artisan migrate"
-alias db:mig="php artisan migrate"
-alias db:res="php artisan migrate:reset"
-alias db:rollback="php artisan migrate:rollback"
-alias db:refresh="php artisan migrate:refresh"
-alias ide:gen="php artisan ide-helper:generate"
-alias ide:models="php artisan ide-helper:models"
-alias ide:models:aat="php artisan ide-helper:models --dir=\"app/AutoAdsToday/Entities\" -W"
-alias ide:models:ysc="php artisan ide-helper:models --dir=\"app/YouthSkillsCenter\" -R -W"
-alias com:up="composer update"
-alias lara:log="tail -f app/storage/logs/laravel.log"
+alias art='php artisan'
+alias g:mig='php artisan generate:migration'
+alias g:model='php artisan generate:model'
+alias db:seed='php artisan db:seed'
+alias db:migrate='php artisan migrate'
+alias db:mig='php artisan migrate'
+alias db:res='php artisan migrate:reset'
+alias db:rollback='php artisan migrate:rollback'
+alias db:refresh='php artisan migrate:refresh'
+alias ide:gen='php artisan ide-helper:generate'
+alias ide:models='php artisan ide-helper:models'
+alias com:up='composer update'
+alias lara:log='tail -f app/storage/logs/laravel.log'
 
 
 # Vagrant
-alias sshhomestead="cd ~/Projects/Homestead && vagrant ssh"
-alias stophomestead="cd ~/Projects/Homestead && vagrant halt"
-alias sshaatvm="cd ~/Projects/autoadstoday/server && vagrant ssh"
-alias stopaatvm="cd ~/Projects/autoadstoday/server && vagrant halt"
-alias vssh="vagrant ssh"
-alias vdown="vagrant suspend"
-alias vup="vagrant up"
+alias sshhomestead='cd ~/Projects/Homestead && vagrant ssh'
+alias stophomestead='cd ~/Projects/Homestead && vagrant halt'
+alias sshaatvm='cd ~/Projects/autoadstoday/server && vagrant ssh'
+alias stopaatvm='cd ~/Projects/autoadstoday/server && vagrant halt'
+alias vssh='vagrant ssh'
+alias vdown='vagrant suspend'
+alias vup='vagrant up'
