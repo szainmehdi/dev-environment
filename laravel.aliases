@@ -1,0 +1,34 @@
+# -----------------------------------------------
+# Laravel Aliases
+# -----------------------------------------------
+
+alias art='php artisan'
+
+alias app:down='php artisan down'
+alias app:up='php artisan up'
+alias app:tinker='php artisan tinker'
+
+alias g:mig='php artisan generate:migration'
+alias g:model='php artisan generate:model'
+alias g:seed='php artisan generate:seed'
+
+alias q:w='php artisan queue:work'
+alias q:l='php artisan queue:listen'
+alias q:flush='php artisan queue:flush'
+alias q:forget='php artisan queue:forget'
+alias q:failed='php artisan queue:failed'
+
+alias db:seed='php artisan db:seed'
+alias db:migrate='php artisan migrate'
+alias db:mig='php artisan migrate'
+alias db:res='php artisan migrate:reset'
+alias db:rollback='php artisan migrate:rollback'
+alias db:refresh='php artisan migrate:refresh'
+
+alias i:u='php artisan inventory:update'
+alias i:c='php artisan inventory:clear'
+
+alias ide:gen='php artisan ide-helper:generate'
+alias ide:models='php artisan ide-helper:models'
+
+alias lara:log='tail -f app/storage/logs/laravel.log'

@@ -1,0 +1,20 @@
+
+# Terminal/Bash/ZSH/Shell
+source ./shell.aliases
+
+# Git
+source ./git.aliases
+
+# Laravel
+source ./laravel.aliases
+
+# PHP Aliases
+source ./php.aliases
+
+# Vagrant
+source ./vagrant.aliases
+
+
+### Misc Aliases:
+alias hosts='sudo subl /etc/hosts'
+alias pubkey='cat ~/.ssh/id_rsa.pub && cat ~/.ssh/id_rsa.pub | pbcopy'

@@ -1,0 +1,7 @@
+# -----------------------------------------------
+# Vagrant Aliases
+# -----------------------------------------------
+
+alias vssh='vagrant ssh'
+alias vdown='vagrant suspend'
+alias vup='vagrant up'
