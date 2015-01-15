@@ -1,18 +1,17 @@
-
 # Terminal/Bash/ZSH/Shell
-source ./shell.aliases
+source ~/.aliases/shell.aliases
 
 # Git
-source ./git.aliases
+source ~/.aliases/git.aliases
 
 # Laravel
-source ./laravel.aliases
+source ~/.aliases/laravel.aliases
 
 # PHP Aliases
-source ./php.aliases
+source ~/.aliases/php.aliases
 
 # Vagrant
-source ./vagrant.aliases
+source ~/.aliases/vagrant.aliases
 
 
 ### Misc Aliases:
