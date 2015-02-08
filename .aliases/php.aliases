@@ -1,9 +1,0 @@
-# -----------------------------------------------
-# PHP Aliases
-# -----------------------------------------------
-
-alias com:up='composer update'
-alias com:in='composer install'
-alias com:req='composer require'
-
-alias phpspec='vendor/bin/phpspec'

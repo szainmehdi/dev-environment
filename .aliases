@@ -1,4 +1,44 @@
 # -----------------------------------------------
+# Shell Aliases
+# -----------------------------------------------
+
+
+alias '..'='cd ..'
+alias '...'='cd ../..'
+alias 'cd..'='cd ..'
+alias 'cd...'='cd ../..'
+alias 'cd....'='cd ../../..'
+alias 'cd.....'='cd ../../../..'
+alias '..'='cd ..'
+alias '...'='cd ../..'
+alias 1='cd -'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
+alias '_'=sudo
+
+alias d='dirs -v | head -10'
+alias h='cd ~'
+alias c='clear'
+
+alias l='ls -lah'
+alias la='ls -lAh'
+alias ll='ls -lh'
+alias ls='ls -G'
+alias lsa='ls -lah'
+
+alias history='fc -l 1'
+
+alias md='mkdir -p'
+
+alias please=sudo
+
+# -----------------------------------------------
 # Git Aliases
 # -----------------------------------------------
 
@@ -76,3 +116,61 @@ alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
 alias gup='git pull --rebase'
 alias gvt='git verify-tag'
 alias gwip='git add -A; git ls-files --deleted -z | xargs -r0 git rm; git commit -m "--wip--"'
+
+# -----------------------------------------------
+# PHP Aliases
+# -----------------------------------------------
+
+alias com:up='composer update'
+alias com:in='composer install'
+alias com:req='composer require'
+
+alias phpspec='vendor/bin/phpspec'
+
+# -----------------------------------------------
+# Laravel Aliases
+# -----------------------------------------------
+
+alias art='php artisan'
+
+alias app:down='php artisan down'
+alias app:up='php artisan up'
+alias app:tinker='php artisan tinker'
+
+alias g:mig='php artisan generate:migration'
+alias g:model='php artisan generate:model'
+alias g:seed='php artisan generate:seed'
+
+alias q:w='php artisan queue:work'
+alias q:l='php artisan queue:listen'
+alias q:flush='php artisan queue:flush'
+alias q:forget='php artisan queue:forget'
+alias q:failed='php artisan queue:failed'
+
+alias db:seed='php artisan db:seed'
+alias db:migrate='php artisan migrate'
+alias db:mig='php artisan migrate'
+alias db:res='php artisan migrate:reset'
+alias db:rollback='php artisan migrate:rollback'
+alias db:refresh='php artisan migrate:refresh'
+
+alias i:u='php artisan inventory:update'
+alias i:c='php artisan inventory:clear'
+
+alias ide:gen='php artisan ide-helper:generate'
+alias ide:models='php artisan ide-helper:models'
+
+alias lara:log='tail -f app/storage/logs/laravel.log'
+
+# -----------------------------------------------
+# Vagrant Aliases
+# -----------------------------------------------
+
+alias vssh='vagrant ssh'
+alias vdown='vagrant suspend'
+alias vup='vagrant up'
+
+
+### Misc Aliases:
+alias hosts='sudo subl /etc/hosts'
+alias pubkey='cat ~/.ssh/id_rsa.pub && cat ~/.ssh/id_rsa.pub | pbcopy'
