@@ -1,0 +1,73 @@
+# Directories
+alias we="cd ~/Code/weebly/weebly"
+alias phx="cd ~/Code/weebly/phoenix/feather"
+alias tad="cd ~/Code/weebly/cloudform/technical-approach-documents"
+
+# Console
+alias console="bin/console"
+alias co="console"
+  
+# Git Extras
+alias gcol="git checkout live"
+alias rabbit="cd ~/Code/weebly/weebly/rabbitmq-consumer"
+  
+## Push the current branch to origin/{your-current-branch} and set tracking for the future.
+gpup () {
+    git push -u origin `git symbolic-ref --short HEAD`
+}
+## After running this once on your current branch, you can run the standard `git push`.
+
+#pr () {
+#    open https://github.intern.weebly.net/weebly/weebly/compare/live...`git symbolic-ref --short HEAD`
+#}
+
+# Weebly Aliases
+W_BASE_DIR="/var/www/weebly/local" ### Set this to your repo root.
+alias wcmd="weld docker exec -it weebly-monolith"
+
+# Translations
+tl () {
+    co i18n:trans:build
+} 
+
+# Rsync
+alias up="~/Code/weebly/weebly/local/sync.rb"
+ 
+# Use console on path
+function pco() {
+    wcmd php ${W_BASE_DIR}/bin/console --ansi $@
+}
+ 
+ 
+## Tests
+alias weeblytests="wcmd ${W_BASE_DIR}/bin/weeblytests"
+function weeblyphpunit() {
+   docker-compose exec weebly bin/weeblyphpunit $@
+}
+function weeblyparatest() {
+    wcmd "${W_BASE_DIR}/bin/weeblyparatest $@"
+}
+function weeblyjstests() {
+    wcmd "cd ${W_BASE_DIR} && ./bin/weeblyjstests $@"
+}
+  
+## Assets
+alias update="wcmd ${W_BASE_DIR}/build/update.php"
+alias sass="wcmd ${W_BASE_DIR}/build/compile_sass.sh"
+alias watchsass="wcmd ${W_BASE_DIR}/tools/watch_sass.sh"
+  
+# Use Composer on Path
+alias pcom="wcmd \"cd ${W_BASE_DIR} && composer $@\""
+  
+# Use NPM on Path
+alias pnpm="wcmd \"cd ${W_BASE_DIR} && npm $@\""
+  
+# Use Bower on Path
+alias pbow="wcmd \"cd ${W_BASE_DIR} && bower $@\""
+  
+# DB
+alias shard="wcmd ${W_BASE_DIR}/bin/shard"
+
+# DOCKER ALIASES
+alias dock="docker-compose"
+

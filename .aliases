@@ -63,6 +63,7 @@ alias gcl='git config --list'
 alias gclean='git reset --hard && git clean -dfx'
 alias gcm='git checkout master'
 alias gco='git checkout'
+alias gcom='git checkout master'
 alias gcount='git shortlog -sn'
 alias gcp='git cherry-pick'
 alias gcs='git commit -S'
@@ -132,7 +133,7 @@ alias phpspec='vendor/bin/phpspec'
 # -----------------------------------------------
 
 alias art='php artisan'
-
+alias co='./bin/console'
 alias app:down='php artisan down'
 alias app:up='php artisan up'
 alias app:tinker='php artisan tinker'
@@ -172,5 +173,12 @@ alias vup='vagrant up'
 
 
 ### Misc Aliases:
-alias hosts='sudo subl /etc/hosts'
+alias hosts='sudo code /etc/hosts'
 alias pubkey='cat ~/.ssh/id_rsa.pub && cat ~/.ssh/id_rsa.pub | pbcopy'
+alias pr="bash ~/Code/environment/snippets/commits2pr.sh"
+
+# Functions
+function perf {
+  curl -s -w "\n\n%{time_connect} + %{time_starttransfer} = %{time_total}\n" "$@"
+}
+function gpup { git push -u origin `git symbolic-ref --short HEAD` }
