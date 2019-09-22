@@ -31,6 +31,8 @@ alias la='ls -lAh'
 alias ll='ls -lh'
 alias ls='ls -G'
 alias lsa='ls -lah'
+alias perm='stat -f "%A %a %N"'
+alias permu='stat -c "%a %n"'
 
 alias history='fc -l 1'
 
@@ -175,7 +177,7 @@ alias vup='vagrant up'
 ### Misc Aliases:
 alias hosts='sudo code /etc/hosts'
 alias pubkey='cat ~/.ssh/id_rsa.pub && cat ~/.ssh/id_rsa.pub | pbcopy'
-alias pr="bash ~/Code/environment/snippets/commits2pr.sh"
+# alias pr="bash ~/Code/environment/snippets/commits2pr.sh"
 
 # Functions
 function perf {

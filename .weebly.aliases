@@ -2,6 +2,15 @@
 alias we="cd ~/Code/weebly/weebly"
 alias phx="cd ~/Code/weebly/phoenix/feather"
 alias tad="cd ~/Code/weebly/cloudform/technical-approach-documents"
+alias rabbit="cd ~/Code/weebly/weebly/rabbitmq-consumer"
+alias sq="cd ~/Code/weebly/square-sync"
+alias ss="~/Code/weebly/square-sync/scripts/ss.rb"
+
+# Weld Helpers for Phoenix
+alias phweld="weld svc exec phoenix phoenix"
+alias wart="phweld php artisan --ansi"
+alias sqart="weld docker exec -it square-sync-fpm php artisan"
+alias sqweld="weld docker exec -it square-sync-fpm"
 
 # Console
 alias console="bin/console"
@@ -9,7 +18,6 @@ alias co="console"
   
 # Git Extras
 alias gcol="git checkout live"
-alias rabbit="cd ~/Code/weebly/weebly/rabbitmq-consumer"
   
 ## Push the current branch to origin/{your-current-branch} and set tracking for the future.
 gpup () {
@@ -29,11 +37,8 @@ alias wcmd="weld docker exec -it weebly-monolith"
 tl () {
     co i18n:trans:build
 } 
-
-# Rsync
-alias up="~/Code/weebly/weebly/local/sync.rb"
  
-# Use console on path
+# Use console in weld
 function pco() {
     wcmd php ${W_BASE_DIR}/bin/console --ansi $@
 }
@@ -41,33 +46,11 @@ function pco() {
  
 ## Tests
 alias weeblytests="wcmd ${W_BASE_DIR}/bin/weeblytests"
-function weeblyphpunit() {
-   docker-compose exec weebly bin/weeblyphpunit $@
-}
-function weeblyparatest() {
-    wcmd "${W_BASE_DIR}/bin/weeblyparatest $@"
-}
-function weeblyjstests() {
-    wcmd "cd ${W_BASE_DIR} && ./bin/weeblyjstests $@"
-}
+alias weeblyphpunit="wcmd ${W_BASE_DIR}/bin/weeblyphpunit" 
   
-## Assets
-alias update="wcmd ${W_BASE_DIR}/build/update.php"
-alias sass="wcmd ${W_BASE_DIR}/build/compile_sass.sh"
-alias watchsass="wcmd ${W_BASE_DIR}/tools/watch_sass.sh"
-  
-# Use Composer on Path
-alias pcom="wcmd \"cd ${W_BASE_DIR} && composer $@\""
-  
-# Use NPM on Path
-alias pnpm="wcmd \"cd ${W_BASE_DIR} && npm $@\""
-  
-# Use Bower on Path
-alias pbow="wcmd \"cd ${W_BASE_DIR} && bower $@\""
+# Use Composer on Weld
+alias pcom="wcmd composer -d ${W_BASE_DIR}"
   
 # DB
 alias shard="wcmd ${W_BASE_DIR}/bin/shard"
-
-# DOCKER ALIASES
-alias dock="docker-compose"
 
