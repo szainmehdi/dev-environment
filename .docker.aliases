@@ -1,0 +1,17 @@
+alias dr="docker run --rm -it"
+
+function laravel() {
+    dcomp szainmehdi/laravel "$@"
+}
+
+function composer() {
+    dcomp szainmehdi/composer "$@"
+}
+
+function dcomp() {
+    docker run --rm --interactive --tty \
+        --volume $HOME/.composer/cache:/tmp/cache \
+        --volume $PWD:/app \
+        --user $(id -u):$(id -g) \
+        "$@"
+}
