@@ -1,0 +1,50 @@
+#!/usr/bin/env php
+<?php
+function dd(...$vars) {
+    var_dump(...$vars);
+    die;
+}
+
+function transform_url($url) {
+    if (substr($url, 0, 4) === 'git@') {
+        $url = 'https://' . str_replace(":", "/", substr($url, 4));
+        $url = str_replace(".git", "", $url);
+    }
+
+    return $url;
+}
+
+function main($argc, $argv) {
+    exec('git remote get-url --push origin', $remote, $ret);
+
+    if ($ret !== 0) {
+        die("Failed to get remote URL. Make sure you are running this command in the context of a git repo.");
+    }
+
+    list($url) = $remote;
+
+    exec('git rev-parse --abbrev-ref HEAD', $rev, $ret);
+    if ($ret !== 0) {
+        die('Failed to get the current branch name.');
+    }
+
+    list($branch) = $rev;
+
+    if ($argc > 1) {
+        list(, $base) = $argv;
+    }
+
+    $baseUrl = transform_url($url);
+
+    $url = "$baseUrl/compare/";
+    
+    if (isset($base)) {
+        $url .= $base . '...';
+    }
+
+    $url .= $branch;
+    
+    passthru("open $url");
+}
+
+main($argc, $argv);
