@@ -5,12 +5,14 @@ alias tad="cd ~/Code/weebly/cloudform/technical-approach-documents"
 alias rabbit="cd ~/Code/weebly/weebly/rabbitmq-consumer"
 alias sq="cd ~/Code/weebly/square-sync"
 alias ss="~/Code/weebly/square-sync/scripts/ss.rb"
+alias ch="cd ~/Code/weebly/commerce/chamber"
 
-# Weld Helpers for Phoenix
-alias phweld="weld svc exec phoenix phoenix"
-alias wart="phweld php artisan --ansi"
+# Weld Helpers
+alias wex="weld svc exec chamber chamber-fpm"
+alias wart="wex php artisan --ansi"
 alias sqart="weld docker exec -it square-sync-fpm php artisan"
 alias sqweld="weld docker exec -it square-sync-fpm"
+alias up="weld svc up"
 
 # Console
 alias console="bin/console"
@@ -54,3 +56,5 @@ alias pcom="wcmd composer -d ${W_BASE_DIR}"
 # DB
 alias shard="wcmd ${W_BASE_DIR}/bin/shard"
 
+# Square Sync
+alias hooks='ngrok http 3001 --subdomain=zain-sqhooks'
