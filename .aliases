@@ -50,6 +50,7 @@ alias please=sudo
 # -----------------------------------------------
 alias grep='grep --color=auto --exclude-dir={.bzr,.cvs,.git,.hg,.svn}'
 alias gcom='gco master'
+alias gc='git commit'
 alias gdc='gd --cached'
 # -----------------------------------------------
 # PHP Aliases

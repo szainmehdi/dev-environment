@@ -15,3 +15,15 @@ function dcomp() {
         --user $(id -u):$(id -g) \
         "$@"
 }
+
+function jk() {
+    JEKYLL_VERSION=4
+    docker run --rm \
+      --volume="$PWD:/srv/jekyll" \
+      -it jekyll/jekyll:$JEKYLL_VERSION \
+     "$@"
+}
+
+function jekyll() {
+    jk jekyll "$@"
+}
