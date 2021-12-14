@@ -5,13 +5,17 @@ function laravel() {
 }
 
 function composer() {
-    dcomp szainmehdi/composer "$@"
+    dcomp szainmehdi/php:8.1-dev composer "$@"
+}
+
+function art() {
+    dcomp szainmehdi/php:8.1-dev php artisan "@"
 }
 
 function dcomp() {
     docker run --rm --interactive --tty \
         --volume $HOME/.composer/cache:/tmp/cache \
-        --volume $PWD:/app \
+        --volume $PWD:/var/www/html \
         --user $(id -u):$(id -g) \
         "$@"
 }
