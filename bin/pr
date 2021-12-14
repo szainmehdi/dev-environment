@@ -5,9 +5,16 @@ function dd(...$vars) {
     die;
 }
 
+define('SQUARE_GITHUB_PREFIX', 'org-49461806@');
+
 function transform_url($url) {
     if (substr($url, 0, 4) === 'git@') {
         $url = 'https://' . str_replace(":", "/", substr($url, 4));
+        $url = str_replace(".git", "", $url);
+    }
+
+    if (substr($url, 0, strlen(SQUARE_GITHUB_PREFIX)) === SQUARE_GITHUB_PREFIX) {
+        $url = 'https://' . str_replace(":", "/", substr($url, strlen(SQUARE_GITHUB_PREFIX)));
         $url = str_replace(".git", "", $url);
     }
 
@@ -37,13 +44,13 @@ function main($argc, $argv) {
     $baseUrl = transform_url($url);
 
     $url = "$baseUrl/compare/";
-    
+
     if (isset($base)) {
         $url .= $base . '...';
     }
 
     $url .= $branch;
-    
+
     passthru("open $url");
 }
 

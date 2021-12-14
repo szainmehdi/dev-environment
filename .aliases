@@ -109,7 +109,7 @@ alias dc="docker-compose"
 ### Misc Aliases:
 alias hosts='sudo code /etc/hosts'
 alias pubkey='cat ~/.ssh/id_rsa.pub && cat ~/.ssh/id_rsa.pub | pbcopy'
-# alias pr="bash ~/Code/environment/snippets/commits2pr.sh"
+# alias pr="bash ~/Development/environment/snippets/commits2pr.sh"
 
 # Functions
 function perf {
