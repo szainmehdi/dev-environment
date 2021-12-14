@@ -118,4 +118,18 @@ alias pubkey='cat ~/.ssh/id_rsa.pub && cat ~/.ssh/id_rsa.pub | pbcopy'
 function perf {
   curl -s -w "\n\n%{time_connect} + %{time_starttransfer} = %{time_total}\n" "$@"
 }
-function gpup { git push -u origin `git symbolic-ref --short HEAD` }
+
+# K8S Helpers
+alias kube="kubectl"
+alias kctx="kubectx"
+alias kns="kubens"
+kbash () {
+    kubectl exec -it "$@" -- bash
+}
+alias kauth="gcloud auth application-default login --disable-quota-project"
+
+## Push the current branch to origin/{your-current-branch} and set tracking for the future.
+gpup () {
+    git push -u origin `git symbolic-ref --short HEAD`
+}
+## After running this once on your current branch, you can run the standard `git push`.

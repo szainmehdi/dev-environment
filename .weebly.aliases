@@ -17,24 +17,9 @@ alias sqweld="weld docker exec -it square-sync-fpm"
 # Console
 alias console="bin/console"
 alias co="console"
-  
+
 # Git Extras
 alias gcol="git checkout live"
-
-# K8S Helpers
-alias kube="kubectl"
-alias kctx="kubectx"
-alias kns="kubens"
-kbash () {
-    kubectl exec -it "$@" -- bash 
-}
-alias kauth="gcloud auth application-default login --disable-quota-project"
-
-## Push the current branch to origin/{your-current-branch} and set tracking for the future.
-gpup () {
-    git push -u origin `git symbolic-ref --short HEAD`
-}
-## After running this once on your current branch, you can run the standard `git push`.
 
 #pr () {
 #    open https://github.intern.weebly.net/weebly/weebly/compare/live...`git symbolic-ref --short HEAD`
@@ -49,21 +34,21 @@ alias zlog="tail -f log/zain-Weebly.log | jq '{ message: .message, data: .contex
 # Translations
 tl () {
     co i18n:trans:build
-} 
- 
+}
+
 # Use console in weld
 function pco() {
     wcmd php ${W_BASE_DIR}/bin/console --ansi $@
 }
- 
- 
+
+
 ## Tests
 alias weeblytests="wcmd ${W_BASE_DIR}/bin/weeblytests"
-alias weeblyphpunit="wcmd ${W_BASE_DIR}/bin/weeblyphpunit" 
-  
+alias weeblyphpunit="wcmd ${W_BASE_DIR}/bin/weeblyphpunit"
+
 # Use Composer on Weld
 alias pcom="wcmd composer -d ${W_BASE_DIR}"
-  
+
 # DB
 alias shard="wcmd ${W_BASE_DIR}/bin/shard"
 
