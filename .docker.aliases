@@ -12,6 +12,14 @@ function art() {
     dcomp szainmehdi/php:8.1-dev php artisan "@"
 }
 
+function php() {
+    docker run --rm --interactive --tty \
+        --volume $HOME/.composer/cache:/tmp/cache \
+        --volume $PWD:/var/www/html \
+        --user $(id -u):$(id -g) \
+        szainmehdi/php:8.1-dev php "$@"
+}
+
 function dcomp() {
     docker run --rm --interactive --tty \
         --volume $HOME/.composer/cache:/tmp/cache \

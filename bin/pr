@@ -1,57 +1,43 @@
-#!/usr/bin/env php
-<?php
-function dd(...$vars) {
-    var_dump(...$vars);
-    die;
-}
+#!/usr/bin/env python
+import subprocess
+import webbrowser
+from argparse import ArgumentParser
 
-define('SQUARE_GITHUB_PREFIX', 'org-49461806@');
+SQUARE_GITHUB_PREFIX = 'org-49461806@'\
 
-function transform_url($url) {
-    if (substr($url, 0, 4) === 'git@') {
-        $url = 'https://' . str_replace(":", "/", substr($url, 4));
-        $url = str_replace(".git", "", $url);
-    }
+def transform_url(url: str) -> str:
+    url = url.replace('git@', '')  \
+             .replace(SQUARE_GITHUB_PREFIX, '') \
+             .replace(':', '/') \
+             .replace(".git", '')
 
-    if (substr($url, 0, strlen(SQUARE_GITHUB_PREFIX)) === SQUARE_GITHUB_PREFIX) {
-        $url = 'https://' . str_replace(":", "/", substr($url, strlen(SQUARE_GITHUB_PREFIX)));
-        $url = str_replace(".git", "", $url);
-    }
+    return 'https://' + url
 
-    return $url;
-}
+def get_remote_url() -> str:
+    url = subprocess.check_output('git remote get-url --push origin', shell=True, text=True)
+    return url.strip()
 
-function main($argc, $argv) {
-    exec('git remote get-url --push origin', $remote, $ret);
+def get_branch_name() -> str:
+    branch = subprocess.check_output('git rev-parse --abbrev-ref HEAD', shell=True, text=True)
+    return branch.strip()
 
-    if ($ret !== 0) {
-        die("Failed to get remote URL. Make sure you are running this command in the context of a git repo.");
-    }
+if __name__ == '__main__':
+    # Parse CLI arguments
+    parser = ArgumentParser(
+        description='Open a New PR page in your browser for this repo and branch'
+    )
+    parser.add_argument('base', nargs='?', help='Target base branch (optional)')
+    args = parser.parse_args()
 
-    list($url) = $remote;
+    url = get_remote_url()
+    url = transform_url(url) + '/compare/'
 
-    exec('git rev-parse --abbrev-ref HEAD', $rev, $ret);
-    if ($ret !== 0) {
-        die('Failed to get the current branch name.');
-    }
+    branch = get_branch_name()
+    base = args.base
 
-    list($branch) = $rev;
+    if base is not None:
+        url = url + base + "..."
 
-    if ($argc > 1) {
-        list(, $base) = $argv;
-    }
+    url = url + branch
 
-    $baseUrl = transform_url($url);
-
-    $url = "$baseUrl/compare/";
-
-    if (isset($base)) {
-        $url .= $base . '...';
-    }
-
-    $url .= $branch;
-
-    passthru("open $url");
-}
-
-main($argc, $argv);
+    webbrowser.open(url)
