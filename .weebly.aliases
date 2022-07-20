@@ -3,7 +3,6 @@ alias we="cd ~/Development/weebly/weebly"
 alias phx="cd ~/Development/weebly/phoenix/feather"
 alias tad="cd ~/Development/weebly/cloudform/technical-approach-documents"
 alias rabbit="cd ~/Development/weebly/weebly/rabbitmq-consumer"
-alias sq="cd ~/Development/weebly/square-sync"
 alias ss="~/Development/weebly/square-sync/scripts/ss.rb"
 alias chamber="cd ~/Development/weebly/chamber"
 
@@ -51,6 +50,12 @@ alias pcom="wcmd composer -d ${W_BASE_DIR}"
 
 # DB
 alias shard="wcmd ${W_BASE_DIR}/bin/shard"
+
+# Kubernetes
+ksync () {
+    watchexec --no-vcs-ignore -e php -cr -- kubectl cp "$@":/var/www/temp -c queue-worker
+}
+alias kauth="gcloud auth application-default login --disable-quota-project"
 
 # Square Sync
 alias hooks='ngrok http 3001 --subdomain=zain-sqhooks'
