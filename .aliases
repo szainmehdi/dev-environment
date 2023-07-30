@@ -2,7 +2,8 @@
 # Custom Aliases
 # -----------------------------------------------
 alias dev='./dev'
-
+alias dash='cd ~/Development/dashboard/frontend/dashboard && dashenv'
+alias dashenv='source ~/Development/dashboard/frontend/dashboard/env/bin/activate'
 # -----------------------------------------------
 # Shell Aliases
 # -----------------------------------------------

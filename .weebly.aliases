@@ -1,17 +1,9 @@
 # Directories
-alias we="cd ~/Development/weebly/weebly"
-alias phx="cd ~/Development/weebly/phoenix/feather"
-alias tad="cd ~/Development/weebly/cloudform/technical-approach-documents"
-alias rabbit="cd ~/Development/weebly/weebly/rabbitmq-consumer"
-alias ss="~/Development/weebly/square-sync/scripts/ss.rb"
-alias chamber="cd ~/Development/weebly/chamber"
+alias we="cd ~/Development/weebly"
+alias chamber="cd ~/Development/chamber"
 
 # Weld Helpers
-alias chex="weld docker exec -it chamber-fpm"
-alias chart="chex php artisan --ansi"
-
-alias sqart="weld docker exec -it square-sync-fpm php artisan"
-alias sqweld="weld docker exec -it square-sync-fpm"
+alias chsh="weld bash chamber"
 
 # Console
 alias console="bin/console"
@@ -20,37 +12,6 @@ alias co="console"
 # Git Extras
 alias gcol="git checkout live"
 
-#pr () {
-#    open https://github.intern.weebly.net/weebly/weebly/compare/live...`git symbolic-ref --short HEAD`
-#}
-
-# Weebly Aliases
-W_BASE_DIR="/var/www/weebly/local" ### Set this to your repo root.
-alias wcmd="weld docker exec -it weebly-monolith"
-
-alias zlog="tail -f log/zain-Weebly.log | jq '{ message: .message, data: .context.payload | fromjson }'"
-
-# Translations
-tl () {
-    co i18n:trans:build
-}
-
-# Use console in weld
-function pco() {
-    wcmd php ${W_BASE_DIR}/bin/console --ansi $@
-}
-
-
-## Tests
-alias weeblytests="wcmd ${W_BASE_DIR}/bin/weeblytests"
-alias weeblyphpunit="wcmd ${W_BASE_DIR}/bin/weeblyphpunit"
-
-# Use Composer on Weld
-alias pcom="wcmd composer -d ${W_BASE_DIR}"
-
-# DB
-alias shard="wcmd ${W_BASE_DIR}/bin/shard"
-
 # Kubernetes
 ksync () {
     watchexec --no-vcs-ignore -e php -cr -- kubectl cp "$@":/var/www/temp -c queue-worker
@@ -58,4 +19,8 @@ ksync () {
 alias kauth="gcloud auth application-default login --disable-quota-project"
 
 # Square Sync
-alias hooks='ngrok http 3001 --subdomain=zain-sqhooks'
+alias square-sync-db='kubectl port-forward -n dev-square-sync-zain --context stg svc/dev-square-sync-postgresql 5432'
+alias hooks='ngrok tunnel --label edge=zain 3001'
+
+# Square
+alias goitems='cd ~/Development/go/src/square/up/items'
