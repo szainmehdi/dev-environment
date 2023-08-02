@@ -1,0 +1,7 @@
+# K8S Helpers
+alias kube="kubectl"
+alias kctx="kubectx"
+alias kns="kubens"
+kbash () {
+    kubectl exec -it "$@" -- bash
+}

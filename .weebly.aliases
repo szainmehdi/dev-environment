@@ -1,17 +1,3 @@
-# Directories
-alias we="cd ~/Development/weebly"
-alias chamber="cd ~/Development/chamber"
-
-# Weld Helpers
-alias chsh="weld bash chamber"
-
-# Console
-alias console="bin/console"
-alias co="console"
-
-# Git Extras
-alias gcol="git checkout live"
-
 # Kubernetes
 ksync () {
     watchexec --no-vcs-ignore -e php -cr -- kubectl cp "$@":/var/www/temp -c queue-worker

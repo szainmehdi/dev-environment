@@ -1,3 +1,8 @@
+# -----------------------------------------------
+# Docker Aliases
+# -----------------------------------------------
+alias dc="docker-compose"
+
 alias dr="docker run --rm -it"
 
 function laravel() {

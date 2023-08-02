@@ -1,0 +1,20 @@
+# -----------------------------------------------
+# Git Aliases
+# -----------------------------------------------
+alias grep='grep --color=auto --exclude-dir={.bzr,.cvs,.git,.hg,.svn}'
+function gcom() {
+    git checkout master 2> /dev/null
+    ret=$?
+    if [ $ret -ne 0 ]; then
+        git checkout main
+    fi
+}
+alias gaa='git add --all'
+alias gcod='gco develop'
+alias gc='git commit'
+alias gdc='gd --cached'
+alias gb='git branch'
+## Push the current branch to origin/{your-current-branch} and set tracking for the future.
+function gpup () {
+    git push -u origin `git symbolic-ref --short HEAD`
+}
