@@ -2,6 +2,9 @@
 alias kube="kubectl"
 alias kctx="kubectx"
 alias kns="kubens"
+kexec () {
+    kubectl exec -it "$1" -- "${@:2}"
+}
 kbash () {
-    kubectl exec -it "$@" -- bash
+    kexec "$1" bash
 }
