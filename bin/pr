@@ -3,11 +3,8 @@ import subprocess
 import webbrowser
 from argparse import ArgumentParser
 
-SQUARE_GITHUB_PREFIX = 'org-49461806@'\
-
 def transform_url(url: str) -> str:
     url = url.replace('git@', '')  \
-             .replace(SQUARE_GITHUB_PREFIX, '') \
              .replace(':', '/') \
              .replace(".git", '')
 
