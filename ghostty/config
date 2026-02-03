@@ -8,6 +8,7 @@ font-size = 13
 theme = "Catppuccin Mocha"
 background-opacity = 0.95
 background-blur-radius = 20
+unfocused-split-opacity = 0.9
 window-padding-x = 4
 window-padding-y = 4
 
@@ -42,6 +43,6 @@ keybind = super+shift+bracket_left=previous_tab
 keybind = global:ctrl+backquote=toggle_visibility
 
 # Keybindings: Quick Terminal (global dropdown)
-keybind = global:super+backquote=toggle_quick_terminal
-quick-terminal-position = top
+keybind = global:ctrl+shift+backquote=toggle_quick_terminal
+quick-terminal-position = bottom
 quick-terminal-animation-duration = 0.15
