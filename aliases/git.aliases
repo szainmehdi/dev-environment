@@ -30,8 +30,8 @@ _c_bold=$'\e[1m'
 # Show git status with numbered files (SCM Breeze style)
 unalias gs 2>/dev/null
 gs() {
-    # Check if in a git repository
-    if ! git rev-parse --is-inside-work-tree &>/dev/null; then
+    # Check if in a git work tree
+    if [[ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" != "true" ]]; then
         echo "${_c_red}Not a git repository${_c_reset}"
         return 1
     fi
