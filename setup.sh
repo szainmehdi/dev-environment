@@ -1,17 +1,17 @@
 #!/bin/bash
 # =============================================================================
-# Zsh Environment Setup Script (macOS)
+# Environment Setup Script (macOS)
 # =============================================================================
-# Run this script on a new machine to set up zsh configuration.
+# Run this script on a new machine to set up shell and terminal configuration.
 # Usage: ./setup.sh
 # =============================================================================
 
 set -e
 
-ENV_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+ENV_DIR="$(cd "$(dirname "$0")" && pwd)"
 ZSH_DIR="$ENV_DIR/zsh"
 
-echo "Setting up zsh environment from: $ENV_DIR"
+echo "Setting up environment from: $ENV_DIR"
 echo
 
 # -----------------------------------------------------------------------------
