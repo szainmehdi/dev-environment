@@ -1,0 +1,7 @@
+# Zsh plugins managed by Antidote
+# https://getantidote.github.io/
+
+# Essential plugins
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions
+zsh-users/zsh-syntax-highlighting  # Must be last
