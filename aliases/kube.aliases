@@ -8,3 +8,6 @@ kexec () {
 kbash () {
     kexec "$1" bash
 }
+ksh () {
+    kexec "$1" sh
+}
