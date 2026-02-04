@@ -73,9 +73,6 @@ echo
 # -----------------------------------------------------------------------------
 echo "Creating symlinks..."
 
-# .zshrc
-create_symlink "$ZSH_DIR/.zshrc" "$HOME/.zshrc"
-
 # starship.toml
 mkdir -p "$HOME/.config"
 create_symlink "$ENV_DIR/starship.toml" "$HOME/.config/starship.toml"
@@ -89,17 +86,27 @@ fi
 echo
 
 # -----------------------------------------------------------------------------
-# Create local config if it doesn't exist
+# Create ~/.zshrc (local, not synced)
 # -----------------------------------------------------------------------------
-if [[ ! -f "$HOME/.zshrc.local" ]]; then
-  echo "Creating ~/.zshrc.local for machine-specific config..."
-  cat > "$HOME/.zshrc.local" << 'EOF'
+if [[ ! -f "$HOME/.zshrc" ]]; then
+  echo "Creating ~/.zshrc..."
+  cat > "$HOME/.zshrc" << EOF
 # =============================================================================
-# Local Zsh Config (machine-specific, not synced)
+# Zsh Configuration (Local)
 # =============================================================================
-# Add machine-specific PATH additions, aliases, or functions here.
+# This file is machine-specific and not synced.
+# Common config is sourced below; add local customizations after.
+
+source "$ENV_DIR/zsh/zshrc.common"
+
+# -----------------------------------------------------------------------------
+# Machine-specific config below
+# -----------------------------------------------------------------------------
 
 EOF
+else
+  echo "~/.zshrc already exists - please ensure it sources:"
+  echo "  source \"$ENV_DIR/zsh/zshrc.common\""
 fi
 
 echo
@@ -107,5 +114,5 @@ echo "Setup complete!"
 echo
 echo "Next steps:"
 echo "  1. Open a new terminal or run: source ~/.zshrc"
-echo "  2. Edit ~/.zshrc.local for machine-specific settings"
+echo "  2. Add machine-specific settings directly to ~/.zshrc"
 echo

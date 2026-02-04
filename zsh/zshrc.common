@@ -1,8 +1,9 @@
 # =============================================================================
-# Zsh Configuration
+# Zsh Configuration (Common/Synced)
 # =============================================================================
 # Synced via: ~/Development/env
-# Symlink this file to ~/.zshrc
+# Source this file from ~/.zshrc:
+#   source "$HOME/Development/env/zsh/zshrc.common"
 
 ENV_DIR="$HOME/Development/env"
 
@@ -101,7 +102,3 @@ export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 # Antigravity
 export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 
-# -----------------------------------------------------------------------------
-# Local Config (machine-specific, not synced)
-# -----------------------------------------------------------------------------
-[[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
