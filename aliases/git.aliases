@@ -130,10 +130,10 @@ _git_files() {
         local wt="${line:1:1}"
         local file="${line:3}"
         if [[ "$idx" == "?" ]]; then
-            untracked+=("$file")
+            untracked+=(":/$file")
         else
-            [[ "$idx" != " " ]] && staged+=("$file")
-            [[ "$wt" != " " ]] && unstaged+=("$file")
+            [[ "$idx" != " " ]] && staged+=(":/$file")
+            [[ "$wt" != " " ]] && unstaged+=(":/$file")
         fi
     done < <(git status --porcelain)
     printf '%s\n' "${staged[@]}" "${unstaged[@]}" "${untracked[@]}"
