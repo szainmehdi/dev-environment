@@ -83,6 +83,14 @@ if [[ -d "$ENV_DIR/ghostty" ]]; then
   create_symlink "$ENV_DIR/ghostty/config" "$HOME/.config/ghostty/config"
 fi
 
+# Claude Code statusline (optional)
+if [[ -f "$ENV_DIR/claude-statusline.sh" ]]; then
+  mkdir -p "$HOME/.claude"
+  create_symlink "$ENV_DIR/claude-statusline.sh" "$HOME/.claude/statusline-command.sh"
+  echo "  Note: Update ~/.claude/settings.json to use the statusline:"
+  echo "    \"statusLine\": { \"type\": \"command\", \"command\": \"$HOME/.claude/statusline-command.sh\" }"
+fi
+
 echo
 
 # -----------------------------------------------------------------------------
