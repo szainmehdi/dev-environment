@@ -1,5 +1,0 @@
-DIR=$(dirname "$0")
-source "$DIR/aliases/misc.aliases"
-source "$DIR/aliases/git.aliases"
-source "$DIR/aliases/docker.aliases"
-source "$DIR/aliases/kube.aliases"

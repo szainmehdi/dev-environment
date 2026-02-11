@@ -1,0 +1,1 @@
+alias wsc='wt switch --create --execute=claude'
