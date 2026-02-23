@@ -42,6 +42,13 @@ setopt HIST_VERIFY            # Show command before executing from history
 setopt SHARE_HISTORY          # Share history between sessions
 
 # -----------------------------------------------------------------------------
+# Key Bindings & Word Behavior
+# -----------------------------------------------------------------------------
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+WORDCHARS=${WORDCHARS//[\/]}
+
+# -----------------------------------------------------------------------------
 # Prompt (Starship)
 # -----------------------------------------------------------------------------
 eval "$(starship init zsh)"

@@ -18,6 +18,7 @@ shell-integration-features = cursor,sudo,title
 
 # Behavior
 copy-on-select = clipboard
+macos-option-as-alt = true
 window-inherit-working-directory = true
 scrollback-limit = 1000000000
 
