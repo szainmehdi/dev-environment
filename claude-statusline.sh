@@ -34,24 +34,29 @@ output+="$(printf "${BLUE}${dir_name}${RESET}")"
 
 # Git branch (if in git repo)
 if git -C "$cwd" rev-parse --git-dir > /dev/null 2>&1; then
-    branch=$(git -C "$cwd" --config core.fileMode=false branch --show-current 2>/dev/null || echo "detached")
+    branch=$(git -C "$cwd" --no-optional-locks branch --show-current 2>/dev/null)
+    if [ -z "$branch" ]; then
+        branch="detached:$(git -C "$cwd" --no-optional-locks rev-parse --short HEAD 2>/dev/null)"
+    fi
     output+="$(printf " ${DIM}${branch}${RESET}")"
 
     # Git status (check for modifications)
-    if ! git -C "$cwd" --config core.fileMode=false diff-index --quiet HEAD -- 2>/dev/null || [ -n "$(git -C "$cwd" --config core.fileMode=false ls-files --others --exclude-standard 2>/dev/null)" ]; then
+    if ! git -C "$cwd" --no-optional-locks diff-index --quiet HEAD -- 2>/dev/null || [ -n "$(git -C "$cwd" --no-optional-locks ls-files --others --exclude-standard 2>/dev/null)" ]; then
         output+="$(printf " ${CYAN}*${RESET}")"
     fi
 fi
 
 # Model name (shortened)
 if [ -n "$model" ]; then
-    # Extract simplified model name (e.g., claude-sonnet-4-5-20250929 -> sonnet-4.5)
-    if [[ "$model" =~ sonnet ]]; then
-        model_short="sonnet-4.5"
-    elif [[ "$model" =~ opus ]]; then
-        model_short="opus-4.6"
-    elif [[ "$model" =~ haiku ]]; then
-        model_short="haiku-4.5"
+    # Extract simplified model name dynamically
+    # e.g., claude-sonnet-4-6-20251114 -> sonnet-4.6
+    #        claude-opus-4-6            -> opus-4.6
+    #        claude-haiku-3-5-20241022  -> haiku-3.5
+    if [[ "$model" =~ claude-([a-z]+)-([0-9]+)-([0-9]+) ]]; then
+        family="${BASH_REMATCH[1]}"
+        major="${BASH_REMATCH[2]}"
+        minor="${BASH_REMATCH[3]}"
+        model_short="${family}-${major}.${minor}"
     else
         model_short="$model"
     fi
