@@ -1,1 +1,1 @@
-alias wsc='wt switch --create --execute=claude'
+alias wtc='wt switch --create --execute=claude'
