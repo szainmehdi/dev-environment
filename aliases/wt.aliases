@@ -1,3 +1,4 @@
 alias yolo='claude --allow-dangerously-skip-permissions'
 alias wtc='wt switch --create --execute=yolo'
 alias wtm='wt switch ^'
+alias wtc='wt switch --create --execute=claude'
