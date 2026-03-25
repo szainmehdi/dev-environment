@@ -1,3 +1,0 @@
-#!/bin/zsh
-set -e
-git branch --merged | xargs -n 1 git branch -d
