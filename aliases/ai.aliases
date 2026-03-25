@@ -1,0 +1,2 @@
+alias yolo='claude --allow-dangerously-skip-permissions'
+alias ai='claude --permission-mode auto -p'

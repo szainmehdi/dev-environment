@@ -45,3 +45,5 @@ alias hosts='sudo code /etc/hosts'
 alias pubkey='cat ~/.ssh/id_rsa.pub && cat ~/.ssh/id_rsa.pub | pbcopy'
 
 alias please=sudo
+
+alias reload='source ~/.zshrc'
