@@ -83,6 +83,12 @@ if [[ -d "$ENV_DIR/ghostty" ]]; then
   create_symlink "$ENV_DIR/ghostty/config" "$HOME/.config/ghostty/config"
 fi
 
+# Warp keybindings (optional)
+if [[ -f "$ENV_DIR/warp/keybindings.yaml" ]]; then
+  mkdir -p "$HOME/.warp"
+  create_symlink "$ENV_DIR/warp/keybindings.yaml" "$HOME/.warp/keybindings.yaml"
+fi
+
 # Claude Code statusline (optional)
 if [[ -f "$ENV_DIR/claude-statusline.sh" ]]; then
   mkdir -p "$HOME/.claude"

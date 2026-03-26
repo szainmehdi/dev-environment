@@ -1,0 +1,6 @@
+---
+"input:open_completion_suggestions": tab
+"pane_group:add_down": "alt-\\"
+"pane_group:add_right": alt-shift-|
+"input:toggle_natural_language_command_search": alt-a
+"editor_view:add_next_occurrence": shift-cmd-D
